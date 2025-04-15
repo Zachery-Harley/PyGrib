@@ -32,7 +32,7 @@ class Grib2FileInputStream(Grib2InputStream):
             return None
 
     def _read_remaining_record(self):
-        record_length = Grib2Parser.parse_indicator(self._record).recordLength
+        record_length = Grib2Parser.parse_indicator(self._record)._recordLength
         self._record.extend(self._file.read(record_length - INDICATOR_SECTION_LENGTH))
 
     def bytes_remaining(self):

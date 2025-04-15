@@ -8,16 +8,14 @@ class Grib2Record(Grib2Parser):
     _indicator: Grib2IndicatorSection
     _identification: Grib2IdentificationSection
 
-    @property
-    def indicator(self):
+    def get_indicator(self) -> Grib2IndicatorSection:
         return self._indicator
 
     def set_indicator(self, indicator: Grib2IndicatorSection) -> Grib2Record:
         self._indicator = indicator
         return self
 
-    @property
-    def identification(self):
+    def get_identification(self) -> Grib2IdentificationSection:
         return self._identification
 
     def set_identification(self, identification: Grib2IdentificationSection) -> Grib2Record:

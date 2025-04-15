@@ -6,19 +6,22 @@ INDICATOR_SECTION_LENGTH: int = 16
 
 
 class Grib2IndicatorSection:
-    discipline: int
+    _discipline: int
+
+    def get_discipline(self) -> int:
+        return self._discipline
 
     def set_discipline(self, discipline: int) -> Grib2IndicatorSection:
-        self.discipline = discipline
+        self._discipline = discipline
         return self
-
-    def validate(self):
-        pass
 
 
 class LengthAwareGrib2IndicatorSection(Grib2IndicatorSection):
-    recordLength: int
+    _recordLength: int
 
-    def set_record_length(self, record_length: int) -> Grib2IndicatorSection:
-        self.recordLength = record_length
+    def get_record_length(self) -> int:
+        return self._recordLength
+
+    def set_record_length(self, record_length: int) -> LengthAwareGrib2IndicatorSection:
+        self._recordLength = record_length
         return self

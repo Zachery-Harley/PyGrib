@@ -28,3 +28,5 @@ class ByteParser:
     def next_uint_32(self):
         return self.next_uint(4)
 
+    def get_remaining_bytes(self):
+        return self._bytes_[self._position:]

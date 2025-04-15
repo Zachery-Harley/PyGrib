@@ -1,0 +1,2 @@
+from resolution_and_component_3_3 import ResolutionAndComponent
+from scanning_mode_3_4 import ScanningMode
