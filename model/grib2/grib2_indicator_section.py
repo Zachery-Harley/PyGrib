@@ -1,18 +1,23 @@
 from __future__ import annotations
 
+from model.grib2.code_table import Discipline, get_discipline
+
 IDENTIFIER_LENGTH: int = 4
 RESERVED_LENGTH: int = 2
 INDICATOR_SECTION_LENGTH: int = 16
 
 
 class Grib2IndicatorSection:
-    _discipline: int
+    _discipline: Discipline
 
     def get_discipline(self) -> int:
         return self._discipline
 
-    def set_discipline(self, discipline: int) -> Grib2IndicatorSection:
-        self._discipline = discipline
+    def set_discipline(self, discipline: Discipline | int) -> Grib2IndicatorSection:
+        if isinstance(discipline, Discipline):
+            self._discipline = discipline
+        else:
+            self._discipline = get_discipline(discipline)
         return self
 
 

@@ -1,10 +1,11 @@
 from __future__ import annotations
-from model.grib2 import Grib2GridDefinitionSection
+
+from model.grib2 import Grib2GDS
 from model.grib2.code_table import EarthShape
 from model.grib2.flag_table import ResolutionAndComponent, ScanningMode
 
 
-class GridTemplateLatLong(Grib2GridDefinitionSection):
+class GridTemplateLatLong(Grib2GDS):
     _shape_of_earth: EarthShape = EarthShape.MISSING
     _spherical_earth_rad_scale_factor: int = None
     _spherical_earth_rad_scaled_value: int = None
@@ -28,8 +29,11 @@ class GridTemplateLatLong(Grib2GridDefinitionSection):
     def get_shape_of_earth(self) -> EarthShape:
         return self._shape_of_earth
 
-    def set_shape_of_earth(self, value: EarthShape) -> GridTemplateLatLong:
-        self._shape_of_earth = value
+    def set_shape_of_earth(self, value: EarthShape | int) -> GridTemplateLatLong:
+        if isinstance(value, EarthShape):
+            self._shape_of_earth = value
+        else:
+            self._shape_of_earth = EarthShape(value)
         return self
 
     def get_spherical_earth_rad_scale_factor(self) -> int:

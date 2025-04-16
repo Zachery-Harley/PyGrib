@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from enum import IntEnum
 
-
-class ResolutionAndComponent(IntEnum):
+class ResolutionAndComponent:
     _parallel_increment_given: bool = False
     _meridian_increment_given: bool = False
     _vectors_relative_to_grid: bool = False
