@@ -1,6 +1,5 @@
 from enum import IntEnum
 
-
 class MeteorologicalCategory(IntEnum):
     TEMPERATURE = 0
     MOISTURE = 1
@@ -30,8 +29,3 @@ class MeteorologicalCategory(IntEnum):
     COVARIANCE = 192
     LOCAL_USE = 193
     MISSING = 255
-
-
-class ParameterCategory:
-    _category: IntEnum
-    _category_value: int
